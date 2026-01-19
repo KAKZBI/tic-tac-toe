@@ -1,3 +1,4 @@
+
 class Game
     attr_reader :board
     def initialize()
@@ -20,7 +21,7 @@ class Game
          "#{board[7]}  | #{board[8]} | #{board[9]}\n"
     end
 
-    def endGame?
+    def end_game?
         self.board.keys.all? {|key| self.board[key] != key}
     end
     #Determine if a player's turn is valid
