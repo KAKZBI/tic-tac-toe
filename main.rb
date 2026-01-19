@@ -1,15 +1,17 @@
 require_relative 'lib/game'
 require_relative 'lib/person'
 
+def create_player(rank, letter)
+    puts "player #{rank}, please enter your name: "
+    name = gets.chomp
+    player = Player.new(name, letter)
+    player
+end
 
 def tic_tac_toe
     puts "\e[1;4;35m Tick-Tack-Toe\e[0m"
-    print "\nWhat is the name of player #1>> "
-    name = gets.chomp
-    player_1 = Player.new(name, "X") # player1 will use X
-    print "\nWhat is the name of player #2>> "
-    name = gets.chomp
-    player_2 = Player.new(name, "O") # player2 will use O
+    player_1 = create_player(rank, 'X') # player1 will use X
+    player_2 = create_player(rank, 'O') # player2 will use O
     a_game = Game.new # Create a new game
     puts a_game
     until a_game.end_game? || a_game.has_won?(player_1.letter) || a_game.has_won?(player_2.letter)
