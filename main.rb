@@ -1,7 +1,7 @@
 require_relative 'lib/game'
 require_relative 'lib/person'
 
-def playGame
+def tic_tac_toe
     puts "\e[1;4;35m Tick-Tack-Toe\e[0m"
     print "\nWhat is the name of player #1>> "
     name = gets.chomp
@@ -45,4 +45,4 @@ def playGame
 end
 
 #play the game
-playGame()
+tic_tac_toe()
