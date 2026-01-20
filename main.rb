@@ -16,20 +16,20 @@ def tic_tac_toe
     puts a_game
     until a_game.end_game? || a_game.has_won?(player_1.letter) || a_game.has_won?(player_2.letter)
         print "\n#{player_1.name}, please choose a valid number>> "
-        choosen_number = gets.chomp.to_i
-        until a_game.valid_turn?(choosen_number, player_1.letter)
+        player_choice = gets.chomp.to_i
+        until a_game.valid_choice?(player_choice, player_1.letter)
             puts "\e[1;31m Sorry, this number is invalid \e[0m"
             print "\n#{player_1.name}, please choose a valid number>> "
-            choosen_number = gets.chomp.to_i
+            player_choice = gets.chomp.to_i
         end
         puts a_game
         break if a_game.has_won?(player_1.letter) || a_game.end_game?
         print "\n#{player_2.name}, please choose a valid number>> "
-        choosen_number = gets.chomp.to_i
-        until a_game.valid_turn?(choosen_number, player_2.letter)
+        player_choice = gets.chomp.to_i
+        until a_game.valid_choice?(player_choice, player_2.letter)
             puts "\033[1;31m Sorry, this number is invalid \033[0m"
             print "\n#{player_2.name}, please choose a valid number>> "
-            choosen_number = gets.chomp.to_i
+            player_choice = gets.chomp.to_i
         end
         puts a_game
         # break if a_game.has_won?(player_2.letter)

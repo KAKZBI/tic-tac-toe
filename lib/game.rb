@@ -13,7 +13,7 @@ class Game
         @board[8] = 8
         @board[9] = 9
     end
-    def to_s # Overide to_s
+    def to_s # Display the board
          "#{board[1]}  | #{board[2]} | #{board[3]}\n" +
          "---+---+---\n" +
          "#{board[4]}  | #{board[5]} | #{board[6]}\n" +
@@ -24,11 +24,11 @@ class Game
     def end_game?
         self.board.keys.all? {|key| self.board[key] != key}
     end
-    #Determine if a player's turn is valid
-    def valid_turn?(choosen_number, letter)
+    #Determine if a player's choice is valid
+    def valid_choice?(player_choice, letter)
 
-        if self.board[choosen_number] == choosen_number
-            self.board[choosen_number] = letter
+        if self.board[player_choice] == player_choice
+            self.board[player_choice] = letter
             return true
         end
         return false
