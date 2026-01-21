@@ -5,6 +5,19 @@ class Game
     attr_reader :board
     def initialize()
         @board = Board.new
+        first_player = initialize_player(1, 'X')
+        second_player = initialize_player(2, 'O')
+        @winner = nil
+        self.display_player_letters
+    end
+    def display_player_letters
+        puts "#{@first_player.name}  will use #{@first_player.letter}."
+        puts "#{@second_player.name}  will use #{@second_player.letter}."
+    end
+    def initialize_player(rank, letter)
+        puts "Player #{rank}, please enter your name: "
+        name = gets.chomp
+        Player.new(name, letter)
     end
     def to_s # Display the board
          "#{board[1]}  | #{board[2]} | #{board[3]}\n" +
