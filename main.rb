@@ -7,7 +7,14 @@ def create_player(rank, letter)
     player = Player.new(name, letter)
     player
 end
-
+# def get_player_choice(name)
+#     max_attemps = 3
+#     begin
+#         puts "#{name}, choose a valid number: "
+#         choice = gets.chomp.to_i
+#         raise
+#     rescue
+# end
 def tic_tac_toe
     puts "\e[1;4;35m Tick-Tack-Toe\e[0m"
     player_1 = create_player(1, 'X') # player1 will use X

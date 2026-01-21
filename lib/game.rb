@@ -1,17 +1,10 @@
+require_relative 'board'
+require_relative 'player'
 
 class Game
     attr_reader :board
     def initialize()
-        @board = {}
-        @board[1] = 1
-        @board[2] = 2
-        @board[3] = 3
-        @board[4] = 4
-        @board[5] = 5
-        @board[6] = 6
-        @board[7] = 7
-        @board[8] = 8
-        @board[9] = 9
+        @board = Board.new
     end
     def to_s # Display the board
          "#{board[1]}  | #{board[2]} | #{board[3]}\n" +
@@ -22,7 +15,7 @@ class Game
     end
 
     def end_game?
-        self.board.keys.all? {|key| self.board[key] != key}
+        self.board.all_cells_occupied?
     end
     #Determine if a player's choice is valid
     def valid_choice?(player_choice, letter)
