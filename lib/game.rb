@@ -4,12 +4,33 @@ require_relative 'player'
 class Game
     attr_reader :board
     def initialize()
+        puts "\e[1;4;35m Welcome to Tick-Tack-Toe\e[0m"
         @board = Board.new
-        first_player = initialize_player(1, 'X')
-        second_player = initialize_player(2, 'O')
+        @first_player = initialize_player(1, 'X')
+        @second_player = initialize_player(2, 'O')
         @winner = nil
         self.display_player_letters
     end
+    def result
+        if winner?
+            "Match end - #{@winner.name} is the winner"
+        else
+            "Match end - Draw"
+        end
+    end
+    def run 
+        actual_player = first_player
+        next_player = second_player
+        until end_game? || winner?
+            actual_player.choice = get_player_choice(actual_player)
+            @winner = next_player unless valid_choice?(actual_player.choice)
+            @winner = actual_player if has_won?(actual_player)
+            update_board(actual_player, actual_player.choice) if valid_choice?(actual_player.choice)
+            display_board
+            actual_player, next_player = next_player, actual_player
+        end
+    end
+
     def display_player_letters
         puts "#{@first_player.name}  will use #{@first_player.letter}."
         puts "#{@second_player.name}  will use #{@second_player.letter}."
@@ -19,14 +40,6 @@ class Game
         name = gets.chomp
         Player.new(name, letter)
     end
-    def result
-        if winner?
-            "Match end - #{@winner.name} is the winner"
-        else
-            "Match end - Draw"
-        end
-    end
-    
     def display_board # Display the board
         puts @board
     end
