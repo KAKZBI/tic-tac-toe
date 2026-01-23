@@ -7,6 +7,6 @@ class Player
         @choice
     end
     def choose_cell
-        get.chomp.to_i
+        gets.chomp.to_i
     end
 end
