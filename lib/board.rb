@@ -22,4 +22,7 @@ class Board
   def update_cell(position, symbol)
     @board[position] = symbol
   end
+  def at_cell(position)
+    @board[position]
+  end
 end

@@ -20,11 +20,12 @@ class Game
         Player.new(name, letter)
     end
     def to_s # Display the board
-         "#{board[1]}  | #{board[2]} | #{board[3]}\n" +
-         "---+---+---\n" +
-         "#{board[4]}  | #{board[5]} | #{board[6]}\n" +
-         "---+---+---\n" +
-         "#{board[7]}  | #{board[8]} | #{board[9]}\n"
+        puts @board
+        #  "#{board[1]}  | #{board[2]} | #{board[3]}\n" +
+        #  "---+---+---\n" +
+        #  "#{board[4]}  | #{board[5]} | #{board[6]}\n" +
+        #  "---+---+---\n" +
+        #  "#{board[7]}  | #{board[8]} | #{board[9]}\n"
     end
 
     def end_game?
@@ -40,16 +41,16 @@ class Game
         return false
     end
 
-    def has_won?(letter)
+    def has_won?(player)
         won = false
-        won = true if letter == board[1] && letter == board[2] && board[2] == board[3]
-        won = true if letter == board[1] && letter == board[4] && board[4] == board[7]
-        won = true if letter == board[1] && letter == board[5] && board[5] == board[9]
-        won = true if letter == board[2] && letter == board[5] && board[5] == board[8]
-        won = true if letter == board[3] && letter == board[6] && board[6] == board[9]
-        won = true if letter == board[3] && letter == board[5] && board[5] == board[7]
-        won = true if letter == board[4] && letter == board[5] && board[5] == board[6]
-        won = true if letter == board[7] && letter == board[8] && board[8] == board[9]
+        won = true if player.letter == @board.at_cell(1) && player.letter == @board.at_cell(2) && player.letter == @board.at_cell(3)
+        won = true if player.letter == @board.at_cell(1) && player.letter == @board.at_cell(4) && player.letter == @board.at_cell(7)
+        won = true if player.letter == @board.at_cell(1) && player.letter == @board.at_cell(5) && player.letter == @board.at_cell(9)
+        won = true if player.letter == @board.at_cell(2) && player.letter == @board.at_cell(5) && player.letter == @board.at_cell(8)
+        won = true if player.letter == @board.at_cell(3) && player.letter == @board.at_cell(6) && player.letter == @board.at_cell(9)
+        won = true if player.letter == @board.at_cell(3) && player.letter == @board.at_cell(5) && player.letter == @board.at_cell(7)
+        won = true if player.letter == @board.at_cell(4) && player.letter == @board.at_cell(5) && player.letter == @board.at_cell(6)
+        won = true if player.letter == @board.at_cell(7) && player.letter == @board.at_cell(8) && player.letter == @board.at_cell(9)
         return won
     end
 end
