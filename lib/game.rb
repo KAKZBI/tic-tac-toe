@@ -19,13 +19,16 @@ class Game
         name = gets.chomp
         Player.new(name, letter)
     end
-    def to_s # Display the board
+    def result
+        if winner?
+            "Match end - #{@winner.name} is the winner"
+        else
+            "Match end - Draw"
+        end
+    end
+    
+    def display_board # Display the board
         puts @board
-        #  "#{board[1]}  | #{board[2]} | #{board[3]}\n" +
-        #  "---+---+---\n" +
-        #  "#{board[4]}  | #{board[5]} | #{board[6]}\n" +
-        #  "---+---+---\n" +
-        #  "#{board[7]}  | #{board[8]} | #{board[9]}\n"
     end
 
     def end_game?
