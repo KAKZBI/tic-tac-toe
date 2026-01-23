@@ -29,18 +29,22 @@ class Game
     end
 
     def end_game?
-        self.board.all_cells_occupied?
+        @board.all_cells_occupied?
     end
     #Determine if a player's choice is valid
-    def valid_choice?(player_choice, letter)
-
-        if self.board[player_choice] == player_choice
-            self.board[player_choice] = letter
-            return true
-        end
-        return false
+    def valid_choice?(choice)
+        @board.cell_free?(choice)
     end
-
+    def get_player_choice(player)
+        choice = 0
+        attemps = 3
+        until self.valid_choice?(choice) || attemps <= 0
+            puts "#{player.name}, make your choice - #{attemps} left: "
+            choice = player.choose_cell
+            attemps -= 1
+        end
+        choice
+    end
     def has_won?(player)
         won = false
         won = true if player.letter == @board.at_cell(1) && player.letter == @board.at_cell(2) && player.letter == @board.at_cell(3)
