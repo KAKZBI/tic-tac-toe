@@ -32,6 +32,8 @@ class Game
         end
     end
 
+    private
+    
     def display_player_letters
         puts "#{@first_player.name}  will use #{@first_player.letter}."
         puts "#{@second_player.name}  will use #{@second_player.letter}."
@@ -56,7 +58,7 @@ class Game
         choice = 0
         attemps = 3
         until self.valid_choice?(choice) || attemps <= 0
-            puts "#{player.name}, make your choice - #{attemps} left: "
+            print "#{player.name}, make your choice - #{attemps} attempts left: "
             choice = player.choose_cell
             attemps -= 1
         end
