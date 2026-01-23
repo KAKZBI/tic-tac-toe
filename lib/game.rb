@@ -45,6 +45,9 @@ class Game
         end
         choice
     end
+    def update_board(player, player_choice)
+        @board.update_cell(player_choice, player.letter)
+    end
     def winner?
         # returns true or false
         !!@winner
