@@ -45,6 +45,10 @@ class Game
         end
         choice
     end
+    def winner?
+        # returns true or false
+        !!@winner
+    end
     def has_won?(player)
         won = false
         won = true if player.letter == @board.at_cell(1) && player.letter == @board.at_cell(2) && player.letter == @board.at_cell(3)
