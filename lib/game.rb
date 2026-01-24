@@ -8,8 +8,8 @@ class Game
     def initialize()
         puts " Welcome to Tick-Tack-Toe".colorize(:green)
         @board = Board.new
-        @first_player = initialize_player(1, 'X')
-        @second_player = initialize_player(2, 'O')
+        @first_player = initialize_player(1, 'X'.colorize(:blue))
+        @second_player = initialize_player(2, 'O'.colorize(:yellow))
         @winner = nil
         self.display_player_letters
         display_board
@@ -18,7 +18,7 @@ class Game
         if winner?
             "Match end - #{@winner.name} is the winner"
         else
-            "Match end - Draw"
+            "Match end - Draw".colorize(:red)
         end
     end
     def run 
