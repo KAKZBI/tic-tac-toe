@@ -1,6 +1,6 @@
 require_relative 'board'
 require_relative 'player'
-# require 'pry-byebug'
+require 'pry-byebug'
 require 'colorize'
 
 class Game
@@ -16,11 +16,12 @@ class Game
     end
     def result
         sleep(1)
-        if winner?
-            "Match end - #{@winner.name} is the winner"
-        else
-            "Match end - Draw".colorize(:red)
-        end
+        return "Match end - Draw".colorize(:red) unless winner?
+
+        # Check which color to use based on the winner's identity
+        color = (@winner == @first_player) ? :blue : :yellow
+  
+        "Match end - #{@winner.name} is the winner".colorize(color)
     end
     def run 
         current_player = @first_player
