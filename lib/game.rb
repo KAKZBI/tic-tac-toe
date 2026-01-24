@@ -1,5 +1,6 @@
 require_relative 'board'
 require_relative 'player'
+require 'pry-byebug'
 
 class Game
     # attr_reader :board
@@ -20,20 +21,20 @@ class Game
         end
     end
     def run 
-        actual_player = @first_player
+        current_player = @first_player
         next_player = @second_player
         until end_game? || winner?
-            actual_player.choice = get_player_choice(actual_player)
-            @winner = next_player unless valid_choice?(actual_player.choice)
-            @winner = actual_player if has_won?(actual_player)
-            update_board(actual_player, actual_player.choice) if valid_choice?(actual_player.choice)
+            current_player.choice = get_player_choice(current_player)
+            @winner = next_player unless valid_choice?(current_player.choice)
+            update_board(current_player, current_player.choice) if valid_choice?(current_player.choice)
+            @winner = current_player if has_won?(current_player)
             display_board
-            actual_player, next_player = next_player, actual_player
+            current_player, next_player = next_player, current_player
         end
     end
 
     private
-    
+
     def display_player_letters
         puts "#{@first_player.name}  will use #{@first_player.letter}."
         puts "#{@second_player.name}  will use #{@second_player.letter}."
