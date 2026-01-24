@@ -1,11 +1,12 @@
 require_relative 'board'
 require_relative 'player'
-require 'pry-byebug'
+# require 'pry-byebug'
+require 'colorize'
 
 class Game
     # attr_reader :board
     def initialize()
-        puts "\e[1;4;35m Welcome to Tick-Tack-Toe\e[0m"
+        puts " Welcome to Tick-Tack-Toe".colorize(:green)
         @board = Board.new
         @first_player = initialize_player(1, 'X')
         @second_player = initialize_player(2, 'O')
