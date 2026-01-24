@@ -15,6 +15,7 @@ class Game
         display_board
     end
     def result
+        sleep(1)
         if winner?
             "Match end - #{@winner.name} is the winner"
         else
