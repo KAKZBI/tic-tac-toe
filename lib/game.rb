@@ -45,6 +45,7 @@ class Game
         Player.new(name, letter)
     end
     def display_board # Display the board
+        puts
         puts @board
     end
 
