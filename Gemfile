@@ -6,4 +6,7 @@ source "https://rubygems.org"
 
 gem "colorize", "~> 1.1"
 
-gem "pry-byebug", "~> 3.12", group: :development
+group :development do
+  gem "pry-byebug", "~> 3.12"
+  gem "rubocop", "~> 1.82"
+end
