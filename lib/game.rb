@@ -1,6 +1,5 @@
 require_relative 'board'
 require_relative 'player'
-require 'pry-byebug'
 require 'colorize'
 
 WINNING_COMBOS = [
