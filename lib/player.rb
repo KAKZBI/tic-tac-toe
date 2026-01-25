@@ -4,7 +4,7 @@ class Player
     def initialize(name, letter)
         @name = name
         @letter = letter
-        @choice
+        @choice = nil
     end
     def choose_cell
         gets.chomp.to_i
