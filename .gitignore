@@ -1,0 +1,9 @@
+# Ignore the local ruby version if you use rbenv/rvm
+.ruby-version
+
+# Ignore the vendor directory if you bundle there
+/vendor/bundle
+
+# Ignore temporary files
+*.swp
+.DS_Store
