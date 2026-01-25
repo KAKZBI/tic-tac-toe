@@ -58,7 +58,7 @@ class Game
     Player.new(name.capitalize, letter)
   end
 
-  def display_board 
+  def display_board
     puts
     puts @board
     puts

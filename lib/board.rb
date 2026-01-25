@@ -4,11 +4,12 @@ class Board
     @board = Array(1..9).each_with_object({}) { |key, hash| hash[key] = key }
   end
 
-  def to_s # Display the board
-    "#{@board[1]}  | #{@board[2]} | #{@board[3]}\n" +
-      "---+---+---\n" +
-      "#{@board[4]}  | #{@board[5]} | #{@board[6]}\n" +
-      "---+---+---\n" +
+  # Display the board
+  def to_s
+    "#{@board[1]}  | #{@board[2]} | #{@board[3]}\n" \
+      "---+---+---\n" \
+      "#{@board[4]}  | #{@board[5]} | #{@board[6]}\n" \
+      "---+---+---\n" \
       "#{@board[7]}  | #{@board[8]} | #{@board[9]}\n"
   end
 
