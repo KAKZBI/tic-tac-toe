@@ -65,8 +65,8 @@ class Game
         attemps = 3
         until self.valid_choice?(choice) || attemps <= 0
             color = (player == @first_player) ? :blue : :yellow
-            # warning = "#{attemps} attempts left"
-            print "#{player.name.colorize(color)}, make your choice - #{attemps} attempts left: "
+            warning = (attemps < 3) ? "#{attemps} attempts left".colorize(:red) : "#{attemps} attempts left"
+            print "#{player.name.colorize(color)}, make your choice - #{warning}: "
             choice = player.choose_cell
             attemps -= 1
         end
