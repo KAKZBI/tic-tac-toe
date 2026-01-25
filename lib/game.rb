@@ -46,11 +46,12 @@ class Game
     def initialize_player(rank, letter)
         print "Player #{rank}, please enter your name: "
         name = gets.chomp
-        Player.new(name, letter)
+        Player.new(name.capitalize, letter)
     end
     def display_board # Display the board
         puts
         puts @board
+        puts
     end
 
     def end_game?
